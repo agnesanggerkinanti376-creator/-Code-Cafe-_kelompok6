@@ -85,10 +85,9 @@ nav {
 
 /* GLOBAL SECTION & SOLUSI SCROLL TERPOTONG */ 
 .section-container { 
-    padding: 100px 8% 60px; 
+    padding: 60px 8% 40px; /* Diubah dari 100px ke 60px agar space kosong hilang */
     text-align: center; 
-    /* DITAMBAH JADI 130PX: Jarak aman judul Tentang, Menu, Galeri, Testimoni agar tidak tertutup navbar */
-    scroll-margin-top: 130px; 
+    scroll-margin-top: 80px; /* Diturunkan ke 80px agar pas presisi di bawah navbar */
 } 
 
 .section-container h2 { 
@@ -110,15 +109,14 @@ nav {
     border-radius: 2px;
 }
 
-/* HERO SECTION */ 
+/* HERO SECTION - KONTEN NAIK KE ATAS */ 
 .hero { 
-    padding: 190px 8% 80px; 
+    padding: 120px 8% 50px; /* Diubah dari 190px ke 120px agar teks dan logo langsung naik rapi ke atas */
     display: flex; 
     align-items: center; 
     justify-content: space-between; 
     gap: 50px; 
-    /* DITAMBAH JADI 130PX: Jarak aman untuk section Home */
-    scroll-margin-top: 130px; 
+    scroll-margin-top: 80px; 
 } 
 
 .hero-content { 
@@ -154,7 +152,7 @@ nav {
 
 .btn-cta:hover { 
     background: #3b2723; 
-    transform: translateY(-3px); 
+    transform: translateY(-2px); 
     box-shadow: 0 6px 20px rgba(59, 39, 35, 0.4);
 } 
 
@@ -164,11 +162,12 @@ nav {
     justify-content: center;
 } 
 
+/* LOGO MENJADI BULAT SEMPURNA & UKURANNYA PROPORASIONAL */
 .hero-img img { 
     width: 100%; 
-    max-width: 360px; 
+    max-width: 350px; 
     height: auto;
-    border-radius: 50%; 
+    border-radius: 50%; /* Trik memotong background kotak putih logo menjadi lingkaran */
     box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
     transition: transform 0.3s ease;
 }
@@ -315,10 +314,9 @@ nav {
 
 /* KONTAK SECTION */ 
 .contact { 
-    padding: 100px 8%; 
+    padding: 60px 8%; /* Spasi dipangkas agar seimbang */
     text-align: center; 
-    /* DITAMBAH JADI 130PX: Jarak aman untuk section Kontak */
-    scroll-margin-top: 130px; 
+    scroll-margin-top: 80px; 
 } 
 
 .contact h1 { 
@@ -458,7 +456,7 @@ footer p {
 /* RESPONSIVE DESIGN */ 
 @media (max-width: 992px) {
     .hero {
-        padding: 160px 8% 50px;
+        padding: 120px 8% 50px;
         gap: 40px;
     }
     .hero-content h1 { font-size: 40px; }
@@ -492,7 +490,7 @@ footer p {
     } 
     
     .section-container {
-        padding: 80px 5% 40px;
+        padding: 60px 5% 40px;
     } 
     
     .hero, .about-grid, .contact-box { 
