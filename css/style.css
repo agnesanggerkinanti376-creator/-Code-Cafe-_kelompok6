@@ -1,4 +1,6 @@
-/* RESET & GLOBAL STYLES */
+/* ==========================================================================
+   1. RESET & GLOBAL STYLES
+   ========================================================================== */
 * { 
     box-sizing: border-box; 
     margin: 0; 
@@ -16,7 +18,9 @@ body {
     line-height: 1.6; 
 } 
 
-/* NAVBAR */ 
+/* ==========================================================================
+   2. NAVBAR COMPONENT
+   ========================================================================== */
 nav { 
     position: fixed; 
     top: 0; 
@@ -83,14 +87,17 @@ nav {
     cursor: pointer; 
 } 
 
-/* GLOBAL SECTION & SOLUSI SCROLL TERPOTONG */ 
-.section-container { 
-    padding: 60px 8% 40px; /* Diubah dari 100px ke 60px agar space kosong hilang */
+/* ==========================================================================
+   3. STRUCTURAL GLOBAL CONTEXT (DRY Principle Optimization)
+   ========================================================================== */
+.section-container, .hero, .contact-section { 
+    padding: 70px 8% 40px; 
     text-align: center; 
-    scroll-margin-top: 80px; /* Diturunkan ke 80px agar pas presisi di bawah navbar */
+    /* FIX: Digabung menjadi satu kontrol terpusat setinggi 90px agar efisien */
+    scroll-margin-top: 90px; 
 } 
 
-.section-container h2 { 
+.section-container h2, .contact-section h1 { 
     font-family: 'Fira Code', monospace;
     font-size: 36px; 
     margin-bottom: 40px; 
@@ -99,7 +106,7 @@ nav {
     display: inline-block;
 }
 
-.section-container h2::after {
+.section-container h2::after, .contact-section h1::after {
     content: '';
     display: block;
     width: 50px;
@@ -109,14 +116,15 @@ nav {
     border-radius: 2px;
 }
 
-/* HERO SECTION - KONTEN NAIK KE ATAS */ 
+/* ==========================================================================
+   4. HERO INTERACTIVE LAYOUT
+   ========================================================================== */
 .hero { 
-    padding: 120px 8% 50px; /* Diubah dari 190px ke 120px agar teks dan logo langsung naik rapi ke atas */
+    padding-top: 130px; /* Jarak atas disesuaikan agar proporsional di bawah navbar fixed */
     display: flex; 
     align-items: center; 
     justify-content: space-between; 
     gap: 50px; 
-    scroll-margin-top: 80px; 
 } 
 
 .hero-content { 
@@ -162,26 +170,27 @@ nav {
     justify-content: center;
 } 
 
-/* LOGO MENJADI BULAT SEMPURNA & UKURANNYA PROPORASIONAL */
 .hero-img img { 
     width: 100%; 
     max-width: 350px; 
     height: auto;
-    border-radius: 50%; /* Trik memotong background kotak putih logo menjadi lingkaran */
+    border-radius: 50%; 
     box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
     transition: transform 0.3s ease;
-}
+} 
 
 .hero-img img:hover {
     transform: scale(1.04);
 }
 
-/* ABOUT SECTION */ 
+/* ==========================================================================
+   5. ABOUT SYSTEM LAYOUT
+   ========================================================================== */
 .about-grid { 
     display: flex; 
     gap: 50px; 
     text-align: left; 
-    align-items: center; 
+    align-items: flex-start; /* FIX: Diubah dari center ke flex-start agar susunan teks tetap simetris */
 } 
 
 .about-grid img { 
@@ -198,7 +207,9 @@ nav {
     color: #a06a42; 
 } 
 
-/* MENU SECTION */ 
+/* ==========================================================================
+   6. AUTO-RESPONSIVE CARD GRID (MENU & GALLERY)
+   ========================================================================== */
 .menu-list { 
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -251,7 +262,6 @@ nav {
     color: #6f4e37; 
 } 
 
-/* GALERI SECTION */ 
 .galeri-list { 
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
@@ -272,7 +282,9 @@ nav {
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* TESTIMONI SECTION */ 
+/* ==========================================================================
+   7. TESTIMONI BLOCK
+   ========================================================================== */
 .testimoni-list { 
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -312,21 +324,15 @@ nav {
     color: #d4a373; 
 } 
 
-/* KONTAK SECTION */ 
-.contact { 
-    padding: 60px 8%; /* Spasi dipangkas agar seimbang */
-    text-align: center; 
-    scroll-margin-top: 80px; 
-} 
+/* ==========================================================================
+   8. INTERACTIVE CONTACT FORM
+   ========================================================================== */
+.contact-section h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
 
-.contact h1 { 
-    font-family: 'Fira Code', monospace;
-    font-size: 40px; 
-    margin-bottom: 15px; 
-    color: #3b2723;
-} 
-
-.contact > p { 
+.contact-section > p { 
     margin-bottom: 45px; 
     color: #6f4e37; 
     font-size: 18px;
@@ -389,32 +395,9 @@ input:focus, textarea:focus {
     box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.1);
 }
 
-button[type="submit"] { 
-    width: 100%; 
-    padding: 14px; 
-    border: none; 
-    border-radius: 10px; 
-    background: #6f4e37; 
-    color: white; 
-    font-weight: bold; 
-    font-size: 16px;
-    cursor: pointer; 
-    transition: all 0.3s;
-    box-shadow: 0 4px 12px rgba(111, 78, 55, 0.2);
-} 
-
-button[type="submit"]:hover { 
-    background: #3b2723; 
-    transform: translateY(-2px);
-} 
-
-#hasil { 
-    margin-top: 15px; 
-    text-align: center; 
-    font-weight: bold; 
-} 
-
-/* FOOTER */ 
+/* ==========================================================================
+   9. FOOTER & COPYRIGHT TERMINAL
+   ========================================================================== */
 footer { 
     background: #1c110e; 
     color: #f5ebdd; 
@@ -453,13 +436,14 @@ footer p {
     opacity: 0.7;
 } 
 
-/* RESPONSIVE DESIGN */ 
+/* ==========================================================================
+   10. MEDIA QUERIES (Sistem Responsif HP)
+   ========================================================================== */
 @media (max-width: 992px) {
     .hero {
         padding: 120px 8% 50px;
         gap: 40px;
     }
-    .hero-content h1 { font-size: 40px; }
 }
 
 @media (max-width: 768px) { 
@@ -477,48 +461,54 @@ footer p {
         position: absolute; 
         top: 100%; 
         left: 0; 
-        width: 100%; 
-        background: #1c110e; 
-        padding: 30px; 
-        text-align: center; 
+        width: 100%;
+        background: #1c110e;
+        padding: 30px;
+        text-align: center;
         gap: 20px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    } 
-    
+    }
+
     .nav-links.active { 
         display: flex; 
-    } 
-    
-    .section-container {
-        padding: 60px 5% 40px;
-    } 
-    
-    .hero, .about-grid, .contact-box { 
+    }
+
+    .section-container, .hero, .contact-section { 
+        padding: 50px 5% 30px; 
+    }
+
+    .hero {
+        flex-direction: column-reverse; /* FIX: Membalik urutan di HP agar gambar logo berada di atas teks, jauh lebih estetik */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .about-grid, .contact-box { 
         flex-direction: column; 
-        text-align: center;
-    } 
-    
-    .hero-content, .about-text {
-        text-align: center;
+        text-align: center; 
     }
-    
-    .hero-content h1 {
-        font-size: 34px;
+
+    .hero-content, .about-text { 
+        text-align: center; 
     }
-    
+
+    .hero-content h1 { 
+        font-size: 34px; 
+    }
+
     .about-grid img { 
         width: 100%; 
-        max-width: 400px;
-        margin: 0 auto;
-    } 
-    
-    .info, form {
-        padding: 30px 20px;
+        max-width: 400px; 
+        margin: 0 auto; 
     }
-    
+
+    .info, form { 
+        padding: 30px 20px; 
+    }
+
     footer { 
         flex-direction: column; 
-        text-align: center;
-        padding: 40px 5% 20px;
-    } 
+        text-align: center; 
+        padding: 40px 5% 20px; 
+    }
 }
